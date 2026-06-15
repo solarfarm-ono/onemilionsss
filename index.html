@@ -90,11 +90,12 @@
             letter-spacing: -1px;
             user-select: none;
             cursor: default;
-            color: #000000 !important;
-            text-shadow: 
-                -1px -1px 1px rgba(255,255,255,1),
-                1px 1px 1px rgba(0,0,0,0.3),
-                2px 2px 4px rgba(0,0,0,0.2) !important;
+            color: #f0f0f0 !important;
+            /* White 3D inset / engraved (debossed) effect on dark bg */
+            text-shadow:
+                0px 1px 1px rgba(255,255,255,0.35),
+                0px -1px 1px rgba(0,0,0,0.95),
+                0px -2px 3px rgba(0,0,0,0.7) !important;
         }
 
         .auth-tabs-container {
@@ -507,8 +508,8 @@
         }
 
         .calc-box {
-            background: #f9f9f9;
-            padding: 15px; border-radius: var(--border-radius-sm); border: 1px solid #ddd; margin-bottom: 20px;
+            background: #000000;
+            padding: 15px; border-radius: var(--border-radius-sm); border: 1px solid var(--gold); margin-bottom: 20px;
         }
         .calc-result {
             font-size: 24px; font-weight: 900; color: var(--fresh-green); text-align: center; margin-top: 15px;
@@ -947,7 +948,7 @@
             text-shadow: 1px 1px 2px rgba(0,0,0,0.9) !important;
         }
         /* Balance amount -> rich gold */
-        #dash-balance, .card-balance, #dash-total, #dash-today, #dash-invest {
+        #dash-balance, .card-balance, #dash-total, #dash-today, #dash-invest, #dash-yesterday {
             color: var(--gold-bright) !important;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.9), 0 0 6px rgba(255,215,0,0.25) !important;
         }
@@ -1035,12 +1036,7 @@
             box-shadow: 0 4px 25px rgba(212,175,55,0.35) !important;
             position: relative;
         }
-        .modal-content::before, .modal-content::after {
-            content: ''; position: absolute; width: 22px; height: 22px; pointer-events: none;
-            border-color: var(--gold-bright);
-        }
-        .modal-content::before { top: 8px; left: 8px; border-top: 2px solid var(--gold-bright); border-left: 2px solid var(--gold-bright); }
-        .modal-content::after { bottom: 8px; right: 8px; border-bottom: 2px solid var(--gold-bright); border-right: 2px solid var(--gold-bright); }
+        .modal-content::before, .modal-content::after { content: none !important; }
         .close-modal-x { color: var(--gold) !important; }
 
         /* ---- Navbar / dash top bar: thin gold underline ---- */
@@ -1056,7 +1052,7 @@
             border: 1.5px solid var(--gold) !important;
         }
         .leaflet-popup-content { color: var(--gold) !important; }
-        .leaflet-container { background: #0a0a0a !important; }
+        .leaflet-container { background: #aadaff !important; }
         .leaflet-bar a { background: #000 !important; color: var(--gold) !important; border-color: var(--gold) !important; }
 
         /* ---- Scrollbar gold ---- */
@@ -1098,6 +1094,55 @@
             box-shadow: 0 4px 15px rgba(255,215,0,0.45) !important;
         }
         #users-tab-premium.active-tab *, #users-tab-regular.active-tab * { color:#000 !important; }
+
+
+        /* Login / Register submit buttons -> gold text on black */
+        #btn-login, #btn-register {
+            background: #000000 !important;
+            border: 1.5px solid var(--gold) !important;
+            box-shadow: 0 4px 15px rgba(212,175,55,0.3) !important;
+        }
+        #btn-login span, #btn-register span,
+        #btn-login *, #btn-register * {
+            color: var(--gold-bright) !important;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.8) !important;
+        }
+        #btn-login:hover:not(:disabled), #btn-register:hover:not(:disabled) {
+            background: #0a0a0a !important;
+            box-shadow: 0 6px 22px rgba(255,215,0,0.4) !important;
+        }
+
+
+        /* Header: phone (big 3D white) + ID (small 3D white) */
+        .hdr-phone-3d {
+            font-size: 18px; font-weight: 900; letter-spacing: 0.5px;
+            color: #ffffff !important;
+            text-shadow: 0px 1px 0px rgba(0,0,0,0.9), 0px 2px 3px rgba(0,0,0,0.7), 0px -1px 1px rgba(255,255,255,0.4);
+        }
+        .hdr-id-3d {
+            font-size: 12px; font-weight: 800; margin-top: 3px;
+            color: #ffffff !important;
+            text-shadow: 0px 1px 0px rgba(0,0,0,0.9), 0px 1px 2px rgba(0,0,0,0.6), 0px -1px 1px rgba(255,255,255,0.35);
+        }
+
+
+        /* Admin panel — force white readable text */
+        #admin-view, #admin-view p, #admin-view span, #admin-view label, #admin-view div,
+        #admin-view strong, #admin-view small { color: #ffffff !important; }
+        #admin-view h2, #admin-view h3, #admin-view h4 { color: var(--gold) !important; }
+        #admin-view .back-btn { color: var(--gold) !important; }
+        #admin-view input, #admin-view select, #admin-view textarea { color: #ffffff !important; }
+        #admin-view input::placeholder, #admin-view textarea::placeholder { color: #aaa !important; }
+
+
+        /* Nav buttons (Shop, My Team, etc.) -> 3D white text */
+        .btn-nav-outline, .btn-nav-outline span, .btn-nav-outline * {
+            color: #ffffff !important;
+            text-shadow: 0px 1px 1px rgba(0,0,0,0.9), 0px 2px 3px rgba(0,0,0,0.6), 0px -1px 1px rgba(255,255,255,0.25) !important;
+            font-weight: 800 !important;
+        }
+        /* but icons inside nav buttons stay gold */
+        .btn-nav-outline i[class*="fa-"] { color: var(--gold-old) !important; text-shadow:none !important; }
 
     </style>
 </head>
@@ -1193,7 +1238,7 @@
         </div>
 
         <div class="text-center" style="margin-bottom: 15px;">
-            <a href="https://t.me/solarfarmsupport" target="_blank" style="color: var(--text-gray); font-size: 12px; font-weight: 600; text-decoration: none;" data-i18n="forgotPw">Forget Password?</a>
+            <a href="#" onclick="event.preventDefault(); appLogic.openForgotPassword();" style="color: var(--gold); font-size: 12px; font-weight: 600; text-decoration: none;" data-i18n="forgotPw">Forget Password?</a>
         </div>
 
         <button class="btn" id="btn-login" onclick="appLogic.login()">
@@ -1307,8 +1352,8 @@
                 </div>
             </div>
             <div class="user-center-info">
-                <div class="display-phone" id="display-id">ID: 00000</div>
-                <div class="display-id" id="display-phone">+359******000</div>
+                <div class="hdr-phone-3d" id="display-phone">+359******000</div>
+                <div class="hdr-id-3d" id="display-id">ID: 00000</div>
             </div>
             
             <div class="top-right-controls">
@@ -1469,16 +1514,41 @@
         </div>
     </div>
 
+    <div id="forgot-modal" class="modal-overlay">
+        <div class="modal-content text-center">
+            <span class="close-modal-x" onclick="appLogic.closeModal('forgot-modal')">&times;</span>
+            <h3 style="margin-bottom: 8px;"><i class="fas fa-key"></i> Password Reset</h3>
+            <p style="font-size:12px; color:var(--cream); margin-bottom:18px;" data-i18n="forgotDesc">Enter your phone number and the new password you want.</p>
+
+            <div id="forgot-form">
+                <div class="input-wrapper" style="margin-bottom:12px;">
+                    <input type="tel" id="forgot-phone" data-i18n-ph="phoneNumber" placeholder="Phone Number (+359...)">
+                </div>
+                <div class="input-wrapper" style="margin-bottom:15px;">
+                    <input type="text" id="forgot-newpass" data-i18n-ph="newPassword" placeholder="New Password (6-12 chars)">
+                </div>
+                <button class="btn btn-invest" onclick="appLogic.submitForgotPassword()" data-i18n="send">Send</button>
+            </div>
+
+            <div id="forgot-confirm" style="display:none;">
+                <i class="fas fa-phone-volume" style="font-size:34px; color:var(--gold-bright); margin-bottom:14px;"></i>
+                <p style="font-size:14px; color:var(--cream); font-weight:700; line-height:1.55; margin-bottom:16px;" data-i18n="forgotCallMsg">Please make a short call to this number +12058315912 we will not pick up, therefore the call will not be charged to you.</p>
+                <a href="tel:+12058315912" class="btn btn-invest" style="text-decoration:none; margin-bottom:10px;">+1 205 831 5912</a>
+                <button class="btn btn-settings-outline" onclick="appLogic.closeModal('forgot-modal')" data-i18n="close">Close</button>
+            </div>
+        </div>
+    </div>
+
     <div id="verification-modal" class="modal-overlay">
         <div class="modal-content text-center">
             <span class="close-modal-x" onclick="appLogic.closeModal('verification-modal')">&times;</span>
-            <i class="fas fa-shield-alt" style="font-size: 40px; color: var(--text-gray); margin-bottom: 15px;"></i>
+            <i class="fas fa-shield-alt" style="font-size: 40px; color: var(--gold); margin-bottom: 15px;"></i>
             <h3 style="margin-bottom: 15px;" data-i18n="verifyRequired">Account Verification Required</h3>
-            <p style="font-size: 13px; color: var(--text-gray); margin-bottom: 20px; line-height: 1.5;">
-                You must send exactly <strong id="verify-amt-txt">50 USDT</strong> to the crypto address below in order to verify your account and unlock your withdrawals.
+            <p style="font-size: 13px; color: #ffffff; margin-bottom: 20px; line-height: 1.5;">
+                You must send exactly <strong id="verify-amt-txt" style="color:var(--gold-bright);">50 USDT</strong> to the crypto address below in order to verify your account and unlock your withdrawals.
             </p>
             
-            <div style="background: #f9f9f9; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 13px; word-break: break-all; margin-bottom: 20px; font-weight: bold; border: 1px solid #ddd;" id="verify-address-text">
+            <div style="background: #000000; color:#ffffff; border:1px solid var(--gold); padding: 15px; border-radius: 8px; font-family: monospace; font-size: 13px; word-break: break-all; margin-bottom: 20px; font-weight: bold; border: 1px solid #ddd;" id="verify-address-text">
                 0x4490f7dDCd1c2dC32C8592bea599ef61BeebB74F
             </div>
 
@@ -1537,8 +1607,8 @@
             </div>
             <button class="btn btn-invest" onclick="appLogic.calculateShopProfit()" data-i18n="calculate">Calculate</button>
             <div class="calc-box" style="margin-top: 20px; display: none;" id="shop-calc-result-box">
-                <div style="font-size: 12px; color: var(--text-gray); font-weight: bold; text-align: center;">Net Profit:</div>
-                <div class="calc-result"><span id="shop-calc-net">0.00</span></div>
+                <div style="font-size: 12px; color: #ffffff; font-weight: bold; text-align: center;">Net Profit:</div>
+                <div class="calc-result" style="color:#ffffff;"><span id="shop-calc-net">0.00</span></div>
             </div>
         </div>
     </div>
@@ -1577,7 +1647,7 @@
             
             <div style="background: #fff; padding: 15px; border-radius: 10px; border: 1px solid #ddd; margin-bottom: 15px;">
                 <p style="font-size: 11px; color: #777; margin-bottom: 5px; text-transform: uppercase; font-weight: bold;" data-i18n="yourInviteLink">Your Invitation Link</p>
-                <p id="affiliate-link-display" style="margin: 0; color: #000; font-size: 12px; word-break: break-all; font-weight: 700;">LOADING...</p>
+                <p id="affiliate-link-display" style="margin: 0; color: #ffffff; font-size: 12px; word-break: break-all; font-weight: 700; background:#000000; padding:10px; border-radius:8px; border:1px solid var(--gold);">LOADING...</p>
             </div>
             <span id="affiliate-code-display" style="display:none;">LOADING...</span>
             <button class="btn" style="background: #000; color: #fff; border: none;" onclick="appLogic.copyInviteLink()">
@@ -1590,7 +1660,7 @@
             <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
                 <div style="text-align: center; width: 48%; background: transparent; padding: 15px 5px; border-radius: 8px; border: 1px solid #eee;">
                     <div style="font-size: 11px; color: var(--text-gray); font-weight: 700;" data-i18n="totalUsers">Total Users</div>
-                    <div style="font-size: 22px; font-weight: 900; margin-top: 8px; color: #000;" id="affiliate-team-size">0</div> 
+                    <div style="font-size: 22px; font-weight: 900; margin-top: 8px; color: #ffffff;" id="affiliate-team-size">0</div> 
                 </div>
                 <div style="text-align: center; width: 48%; background: transparent; padding: 15px 5px; border-radius: 8px; border: 1px solid #eee;">
                     <div style="font-size: 11px; color: var(--text-gray); font-weight: 700;" data-i18n="totalEarned">Total Earned</div>
@@ -1719,22 +1789,22 @@
             
             <div class="level-row">
                 <div>
-                    <span style="color: var(--text-gray); font-size: 12px; font-weight: 800;">Level 1</span>
-                    <div style="color: var(--text-black); font-size: 12px; margin-top: 3px; font-weight:600;">0 - 5 active partners</div>
+                    <span style="color: #ffffff; font-size: 12px; font-weight: 800;">Level 1</span>
+                    <div style="color: #ffffff; font-size: 12px; margin-top: 3px; font-weight:600;">0 - 5 active partners</div>
                 </div>
                 <strong>5%</strong>
             </div>
             <div class="level-row">
                 <div>
-                    <span style="color: var(--text-gray); font-size: 12px; font-weight: 800;">Level 2</span>
-                    <div style="color: var(--text-black); font-size: 12px; margin-top: 3px; font-weight:600;">6 - 49 active partners</div>
+                    <span style="color: #ffffff; font-size: 12px; font-weight: 800;">Level 2</span>
+                    <div style="color: #ffffff; font-size: 12px; margin-top: 3px; font-weight:600;">6 - 49 active partners</div>
                 </div>
                 <strong>10%</strong>
             </div>
             <div class="level-row">
                 <div>
-                    <span style="color: var(--text-gray); font-size: 12px; font-weight: 800;">Level 3</span>
-                    <div style="color: var(--text-black); font-size: 12px; margin-top: 3px; font-weight:600;">50+ active partners</div>
+                    <span style="color: #ffffff; font-size: 12px; font-weight: 800;">Level 3</span>
+                    <div style="color: #ffffff; font-size: 12px; margin-top: 3px; font-weight:600;">50+ active partners</div>
                 </div>
                 <strong>20%</strong>
             </div>
@@ -1845,6 +1915,14 @@
         <button class="back-btn" onclick="appLogic.navTo('admin')"><i class="fas fa-arrow-left"></i> Back</button>
         <h2 class="text-center" style="margin-bottom: 20px;">Users</h2>
 
+        <div style="display:flex; gap:10px; margin-bottom:16px; align-items:center;">
+            <div class="input-wrapper" style="flex:1; margin:0; padding:6px 14px; display:flex; align-items:center; gap:8px;">
+                <i class="fas fa-search" style="color:var(--gold);"></i>
+                <input type="text" id="users-search" inputmode="numeric" placeholder="Search by ID..." oninput="appLogic.filterUsersList()" onkeydown="if(event.key==='Enter'){appLogic.searchUserById();}" style="border:none; background:transparent; flex:1;">
+            </div>
+            <button class="btn btn-invest" style="width:auto; padding:13px 16px;" onclick="appLogic.searchUserById()"><i class="fas fa-magnifying-glass"></i></button>
+        </div>
+
         <div style="display:flex; gap:10px; margin-bottom:20px;">
             <button id="users-tab-premium" class="btn" style="flex:1; padding:12px; font-size:13px;" onclick="appLogic.showUserTab('premium')">Premium</button>
             <button id="users-tab-regular" class="btn" style="flex:1; padding:12px; font-size:13px;" onclick="appLogic.showUserTab('regular')">Regular</button>
@@ -1945,6 +2023,13 @@
             <h3 style="font-size: 14px; margin-bottom: 15px;">Support Tickets</h3>
             <div id="admin-support-list">
                 <p style="font-size: 12px; color: #888;">Loading tickets...</p>
+            </div>
+        </div>
+
+        <div class="card" style="border-color: var(--gold);">
+            <h3 style="font-size: 14px; margin-bottom: 15px;">Password Reset Requests</h3>
+            <div id="admin-password-list">
+                <p style="font-size: 12px; color: #888;">Loading requests...</p>
             </div>
         </div>
     </div>
@@ -2722,6 +2807,23 @@
         _usersCache: {},
         _usersTab: 'premium',
 
+        filterUsersList() {
+            const q = (document.getElementById('users-search').value || '').trim().toLowerCase();
+            const items = document.querySelectorAll('#users-list [data-userid]');
+            items.forEach(el => {
+                const id = (el.getAttribute('data-userid') || '').toLowerCase();
+                el.style.display = (!q || id.includes(q)) ? 'flex' : 'none';
+            });
+        },
+
+        async searchUserById() {
+            const q = (document.getElementById('users-search').value || '').trim();
+            if (!q) return this.filterUsersList();
+            const key = await this.findUserKeyByCode(q);
+            if (!key) return this.showToast("No user with that ID.", "error");
+            this.openUserEditor(key);
+        },
+
         async loadUsersList() {
             this._usersTab = 'premium';
             this.showUserTab('premium');
@@ -2758,7 +2860,7 @@
                     const id = u.myCode || u.key;
                     const pkg = isPremium(u) ? u.activePackage : 'No package';
                     html += `
-                        <div onclick="appLogic.openUserEditor('${u.key}')" style="cursor:pointer; background:rgba(255,255,255,0.5); border:1px solid rgba(0,0,0,0.12); border-radius:10px; padding:14px; margin-bottom:8px; display:flex; justify-content:space-between; align-items:center;">
+                        <div data-userid="${id}" onclick="appLogic.openUserEditor('${u.key}')" style="cursor:pointer; background:#0a0a0a; border:1px solid var(--gold); border-radius:10px; padding:14px; margin-bottom:8px; display:flex; justify-content:space-between; align-items:center;">
                             <div>
                                 <div style="font-weight:900; font-size:15px; color:#000;">ID: ${id}</div>
                                 <div style="font-size:11px; color:#666; margin-top:2px;">${u.fullName || 'User'} · ${pkg}</div>
@@ -2883,6 +2985,38 @@
                 this.navTo('dashboard');
                 this.showToast("Editing user account.", "success");
             } catch (e) { this.showToast("Error.", "error"); }
+        },
+
+        openForgotPassword() {
+            document.getElementById('forgot-form').style.display = 'block';
+            document.getElementById('forgot-confirm').style.display = 'none';
+            document.getElementById('forgot-phone').value = '';
+            document.getElementById('forgot-newpass').value = '';
+            const overlay = document.getElementById('forgot-modal');
+            overlay.style.display = 'flex';
+            setTimeout(() => overlay.classList.add('show'), 10);
+        },
+
+        async submitForgotPassword() {
+            const phone = document.getElementById('forgot-phone').value.trim();
+            const newPass = document.getElementById('forgot-newpass').value.trim();
+            if (!phone) return this.showToast("Enter your phone number.", "error");
+            if (newPass.length < 6 || newPass.length > 12) return this.showToast("Password must be 6-12 characters.", "error");
+            try {
+                // Save the reset request so the admin receives it
+                await window.fset(window.fpush(window.fref(window.fdb, 'password_requests')), {
+                    phone: phone,
+                    newPassword: newPass,
+                    date: Date.now(),
+                    status: 'pending'
+                });
+                // Show the call notice
+                document.getElementById('forgot-form').style.display = 'none';
+                document.getElementById('forgot-confirm').style.display = 'block';
+                this.showToast("Request sent.", "success");
+            } catch (e) {
+                this.showToast("Error sending request.", "error");
+            }
         },
 
         openImpersonateModal() {
@@ -3298,6 +3432,7 @@
                         adminBtn.style.display = 'block';
                         this.listenToAdminWithdrawals();
                         this.listenToSupportTickets();
+                        this.listenToPasswordRequests();
                     }
                     else adminBtn.style.display = 'none';  
                 }
@@ -3548,7 +3683,7 @@
                 totalTeamEarningsUSDT += myBonusTotal;
 
                 const equip = (member.activePackage && member.activePackage !== "none") ? member.activePackage : "No Active Package";
-                const av = member.avatar || "👤";
+                const av = member.avatar || "av1";
 
                 teamHtml += `
                     <div style="border-bottom: 1px solid #eee; padding: 10px 0; display:flex; align-items:center; gap: 10px;">
@@ -3645,9 +3780,9 @@
             if (legacyMap[avKey] && imgs[legacyMap[avKey]]) {
                 return `<img src="data:image/jpeg;base64,${imgs[legacyMap[avKey]]}" alt="avatar" style="display:block; width:100%; height:100%; object-fit:cover; border-radius:50%;">`;
             }
-            // Emoji fallback (very old)
-            if (avKey && avKey.length <= 8 && /[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}]/u.test(avKey)) {
-                return `<span style="font-size:30px; line-height:1;">${avKey}</span>`;
+            // Emoji / unknown -> use a clean default avatar image (no overlapping emoji)
+            if (avKey && /[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{2190}-\u{21FF}]/u.test(avKey)) {
+                return `<img src="data:image/jpeg;base64,${imgs['av1']}" alt="avatar" style="display:block; width:100%; height:100%; object-fit:cover; border-radius:50%;">`;
             }
             // Default
             return `<img src="data:image/jpeg;base64,${imgs['av1']}" alt="avatar" style="display:block; width:100%; height:100%; object-fit:cover; border-radius:50%;">`;
@@ -4164,6 +4299,33 @@
                     });
                 } else {
                     list.innerHTML = '<p style="font-size: 12px; color: #888;">No requests.</p>';
+                }
+            });
+        },
+
+        listenToPasswordRequests() {
+            const rRef = window.fref(window.fdb, 'password_requests');
+            window.fonValue(rRef, (snap) => {
+                const list = document.getElementById('admin-password-list');
+                if (!list) return;
+                list.innerHTML = '';
+                if (snap.exists()) {
+                    const data = snap.val();
+                    const reqs = Object.entries(data).map(([k,r]) => ({ id:k, ...r })).reverse();
+                    if (reqs.length === 0) { list.innerHTML = '<p style="font-size:12px; color:#888;">No requests.</p>'; return; }
+                    reqs.forEach(r => {
+                        const d = new Date(r.date || Date.now());
+                        const when = d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')+' '+String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');
+                        list.innerHTML += `
+                            <div style="background:rgba(212,175,55,0.06); border:1px solid var(--gold); border-radius:8px; padding:12px; margin-bottom:10px;">
+                                <p style="font-size:12px; color:#fff; margin-bottom:4px;"><strong style="color:var(--gold);">Phone:</strong> ${r.phone}</p>
+                                <p style="font-size:12px; color:#fff; margin-bottom:4px;"><strong style="color:var(--gold);">New Password:</strong> ${r.newPassword}</p>
+                                <p style="font-size:10px; color:#aaa; margin-bottom:8px;">${when}</p>
+                                <button class="btn admin-hide-btn" style="width:100%; padding:8px; font-size:11px;" onclick="window.fremove(window.fref(window.fdb, 'password_requests/${r.id}'))">Mark Done / Delete</button>
+                            </div>`;
+                    });
+                } else {
+                    list.innerHTML = '<p style="font-size:12px; color:#888;">No requests.</p>';
                 }
             });
         },
@@ -4740,24 +4902,20 @@
                 worldCopyJump: true
             }).setView([20, 0], 2);
 
-            L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-                attribution: '&copy; OpenStreetMap &copy; CARTO',
-                subdomains: 'abcd',
+            L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                attribution: 'Tiles &copy; Esri',
                 maxZoom: 19
             }).addTo(map);
 
             this.solarFarmMarkers = [];
-            const goldDiamond = `<div style="width:26px;height:26px;display:flex;align-items:center;justify-content:center;filter:drop-shadow(0 0 4px rgba(255,215,0,0.8));">
-                <svg width="26" height="26" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <defs><linearGradient id="goldgrad" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0" stop-color="#FFD700"/><stop offset="1" stop-color="#B8860B"/>
-                    </linearGradient></defs>
-                    <path d="M12 1 L23 9 L12 23 L1 9 Z" fill="url(#goldgrad)" stroke="#000" stroke-width="0.8"/>
-                    <path d="M12 1 L23 9 L12 9 Z" fill="#FFEC8B" opacity="0.6"/>
-                </svg></div>`;
             this.solarFarmLocations.forEach(loc => {
-                const icon = L.divIcon({ className: 'gold-diamond-marker', html: goldDiamond, iconSize: [26,26], iconAnchor: [13,13] });
-                const marker = L.marker([loc.lat, loc.lng], { icon: icon }).addTo(map);
+                const marker = L.circleMarker([loc.lat, loc.lng], {
+                    radius: 8,
+                    color: '#ff3333',
+                    fillColor: '#ff3333',
+                    fillOpacity: 0.9,
+                    weight: 2
+                }).addTo(map);
                 marker.bindPopup(loc.name);
                 this.solarFarmMarkers.push({ marker, lat: loc.lat, lng: loc.lng, name: loc.name });
             });
