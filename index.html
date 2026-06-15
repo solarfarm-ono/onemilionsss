@@ -16,6 +16,10 @@
     
     <style>
         :root {
+            --gold: #B8860B;
+            --gold-bright: #D4AF37;
+            --gold-old: #B8860B;
+            --cream: #F8F0E3;
             --text-black: #000000;
             --text-gray: #7a7a7a;
             --border-gray: #cccccc;
@@ -90,12 +94,11 @@
             letter-spacing: -1px;
             user-select: none;
             cursor: default;
-            color: #f0f0f0 !important;
-            /* White 3D inset / engraved (debossed) effect on dark bg */
-            text-shadow:
-                0px 1px 1px rgba(255,255,255,0.35),
-                0px -1px 1px rgba(0,0,0,0.95),
-                0px -2px 3px rgba(0,0,0,0.7) !important;
+            color: #000000 !important;
+            text-shadow: 
+                -1px -1px 1px rgba(255,255,255,1),
+                1px 1px 1px rgba(0,0,0,0.3),
+                2px 2px 4px rgba(0,0,0,0.2) !important;
         }
 
         .auth-tabs-container {
@@ -470,22 +473,18 @@
         .close-btn:active { background: rgba(0,0,0,0.1); }
 
         .package-card { 
-            background-color: #0a1d3a;
-            background-image:
-                radial-gradient(circle at top left, rgba(80, 140, 255, 0.35) 0%, transparent 60%),
-                radial-gradient(circle at bottom right, rgba(30, 60, 120, 0.5) 0%, transparent 65%);
+            background: rgba(255, 255, 255, 0.55);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
             border-radius: var(--border-radius-md); padding: 25px; margin-bottom: 25px; 
-            border: 1.5px solid #d4af37; 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.35), inset 0 2px 10px rgba(255,255,255,0.08);
+            border: 1px solid rgba(255, 255, 255, 0.7); box-shadow: 0 8px 24px rgba(20,50,90,0.08);
             position: relative; overflow: hidden;
         }
-        .package-title { font-size: 22px; font-weight: 900; color: #ffffff; margin-bottom: 5px; text-transform: capitalize;
-            text-shadow: -1px -1px 1px rgba(255,255,255,0.25), 1px 1px 2px rgba(0,0,0,0.85), 0 0 6px rgba(0,0,0,0.5); }
-        .package-price { font-size: 32px; font-weight: 900; margin: 15px 0; color: #ffffff;
-            text-shadow: -1px -1px 1px rgba(255,255,255,0.25), 1px 1px 2px rgba(0,0,0,0.85), 0 0 6px rgba(0,0,0,0.5); }
+        .package-title { font-size: 22px; font-weight: 900; color: #000; margin-bottom: 5px; text-transform: capitalize; }
+        .package-price { font-size: 32px; font-weight: 900; margin: 15px 0; color: #000; }
         .package-details { 
             display: flex; justify-content: space-between; margin-bottom: 20px; font-size: 12px; 
-            background: rgba(255,255,255,0.10); padding: 15px; border-radius: var(--border-radius-sm); border: 1px solid rgba(0,0,0,0.05);
+            background: rgba(255,255,255,0.6); padding: 15px; border-radius: var(--border-radius-sm); border: 1px solid rgba(0,0,0,0.05);
         }
         .package-details strong { color: #000; font-size: 16px; display: block; margin-top: 5px; font-weight: 900; }
 
@@ -508,8 +507,8 @@
         }
 
         .calc-box {
-            background: #000000;
-            padding: 15px; border-radius: var(--border-radius-sm); border: 1px solid var(--gold); margin-bottom: 20px;
+            background: #f9f9f9;
+            padding: 15px; border-radius: var(--border-radius-sm); border: 1px solid #ddd; margin-bottom: 20px;
         }
         .calc-result {
             font-size: 24px; font-weight: 900; color: var(--fresh-green); text-align: center; margin-top: 15px;
@@ -540,11 +539,11 @@
             display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px;
         }
         .amt-box {
-            border: 1.5px solid #2563eb; padding: 15px 5px; text-align: center; border-radius: 8px;
-            font-weight: 800; cursor: pointer; transition: 0.2s; background: transparent; color: #000000;
+            border: 1px solid var(--border-gray); padding: 15px 5px; text-align: center; border-radius: 8px;
+            font-weight: 800; cursor: pointer; transition: 0.2s; background: transparent; color: var(--text-gray);
         }
         .amt-box.selected {
-            border-color: #2563eb; background: rgba(37,99,235,0.10); color: #000000;
+            border-color: var(--text-black); background: rgba(0,0,0,0.03); color: var(--text-black);
         }
         
         .pin-grid {
@@ -880,271 +879,7 @@
         .admin-edit-pencil:hover { transform: scale(1.15); background: rgba(0,0,0,0.55); }
         .admin-edit-pencil:active { transform: scale(0.95); }
 
-        /* ============================================================
-           THE IMPERIAL PALETTE — Black & Gold luxury theme
-           ============================================================ */
-        :root {
-            --gold: #D4AF37;
-            --gold-bright: #FFD700;
-            --gold-old: #B8860B;
-            --cream: #F8F0E3;
-            --imperial-black: #000000;
-        }
-
-        /* Body: absolute black + subtle velvet noise */
-        body {
-            background-color: #000000 !important;
-            background-image:
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E"),
-                radial-gradient(circle at 50% 0%, rgba(212,175,55,0.06) 0%, transparent 60%) !important;
-            background-attachment: fixed !important;
-            color: var(--cream) !important;
-        }
-        #app-container { background: transparent !important; }
-
-        /* Global text -> cream */
-        body, p, span, div, h1, h2, h3, h4, h5, label, a, li, td, th, strong, b, small {
-            color: var(--cream);
-        }
-        .text-gray, [style*="--text-gray"] { color: #b8a98a !important; }
-
-        /* Headings & key accents -> gold engraved */
-        h1, h2, h3, h4 {
-            color: var(--gold) !important;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.8), 0 0 1px rgba(212,175,55,0.4);
-        }
-
-        /* Views inherit black (kill the light gradients on shop/withdrawal) */
-        .view { background: transparent !important; }
-        #packages-view { background: #000000 !important; background-image: radial-gradient(circle at 50% 0%, rgba(212,175,55,0.07) 0%, transparent 55%) !important; }
-
-        /* ---- Cards: solid black + gold border + heavy gold shadow ---- */
-        .card,
-        #profile-view .card,
-        #affiliate-view .card,
-        #admin-view .card {
-            background: #0a0a0a !important;
-            border: 2px solid var(--gold) !important;
-            box-shadow: 0 4px 15px rgba(212,175,55,0.3) !important;
-            backdrop-filter: none !important;
-        }
-        .card h3, .card h4 {
-            color: var(--gold) !important;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.9);
-        }
-
-        /* ---- Balance / 3D card faces -> imperial ---- */
-        .card-face, .card-face-back, .card-face-darkblue {
-            background-color: #000000 !important;
-            background-image:
-                radial-gradient(circle at top left, rgba(212,175,55,0.18) 0%, transparent 60%),
-                radial-gradient(circle at bottom right, rgba(184,134,11,0.20) 0%, transparent 65%) !important;
-            border: 2px solid var(--gold) !important;
-            box-shadow: 0 4px 15px rgba(212,175,55,0.3) !important;
-        }
-        .engraved-text-light, .card-balance, .card-currency, .card-package,
-        .back-label, .back-value, .card-title {
-            color: var(--cream) !important;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.9) !important;
-        }
-        /* Balance amount -> rich gold */
-        #dash-balance, .card-balance, #dash-total, #dash-today, #dash-invest, #dash-yesterday {
-            color: var(--gold-bright) !important;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.9), 0 0 6px rgba(255,215,0,0.25) !important;
-        }
-        .card-withdraw-text { color: var(--gold-bright) !important; }
-
-        /* ---- Package cards (shop) ---- */
-        .package-card {
-            background-color: #000000 !important;
-            background-image:
-                radial-gradient(circle at top left, rgba(212,175,55,0.15) 0%, transparent 60%),
-                radial-gradient(circle at bottom right, rgba(184,134,11,0.18) 0%, transparent 65%) !important;
-            border: 2px solid var(--gold) !important;
-            box-shadow: 0 4px 15px rgba(212,175,55,0.3) !important;
-        }
-        .package-title { color: var(--gold) !important; }
-        .package-price { color: var(--gold-bright) !important; }
-        .package-details { background: rgba(212,175,55,0.06) !important; border: 1px solid rgba(212,175,55,0.25) !important; }
-
-        /* ---- Buttons: black->gold gradient, black text ---- */
-        .btn,
-        .btn-invest, .btn-reinvest, .btn-nav-outline,
-        .btn-settings-outline, .btn-solarfarm-find {
-            background: linear-gradient(135deg, #000000 0%, #2a2105 40%, var(--gold) 100%) !important;
-            color: #000000 !important;
-            border: 1px solid var(--gold) !important;
-            box-shadow: 0 4px 15px rgba(212,175,55,0.3) !important;
-            backdrop-filter: none !important;
-            text-shadow: none !important;
-            font-weight: 800 !important;
-        }
-        .btn *, .btn-invest *, .btn-nav-outline * { color: #000000 !important; }
-        .btn:hover:not(:disabled),
-        .btn-invest:hover:not(:disabled),
-        .btn-nav-outline:hover:not(:disabled),
-        .btn-settings-outline:hover:not(:disabled) {
-            background: linear-gradient(135deg, #2a2105 0%, var(--gold) 50%, var(--gold-bright) 100%) !important;
-            box-shadow: 0 6px 22px rgba(255,215,0,0.5) !important;
-        }
-        .btn:active:not(:disabled) { transform: translateY(1px); }
-
-        /* Nav buttons text should read clearly on the gold gradient */
-        .btn-nav-outline { letter-spacing: 0.4px; }
-
-        /* ---- Icons -> old gold ---- */
-        .fas, .far, .fab, i[class*="fa-"] { color: var(--gold-old) !important; }
-        /* But icons sitting inside gold buttons should be black */
-        .btn .fas, .btn .far, .btn i[class*="fa-"],
-        .btn-invest i, .btn-nav-outline i { color: #000000 !important; }
-
-        /* ---- Inputs: black + gold border, focus glows ---- */
-        .input-wrapper {
-            background: #000000 !important;
-            border: 1px solid var(--gold) !important;
-        }
-        .input-wrapper:focus-within {
-            border: 2px solid var(--gold-bright) !important;
-            box-shadow: 0 0 10px rgba(255,215,0,0.5) !important;
-        }
-        input, select, textarea {
-            background: transparent !important;
-            color: var(--cream) !important;
-        }
-        input::placeholder, textarea::placeholder { color: #8a7c5a !important; }
-        select option { background: #0a0a0a !important; color: var(--cream) !important; }
-
-        /* ---- Auth tabs ---- */
-        .auth-tab-btn { color: #b8a98a !important; border-color: var(--gold) !important; background: transparent !important; }
-        .auth-tab-btn.active,
-        .auth-tabs-container .auth-tab-btn:first-child.active {
-            background: linear-gradient(135deg, #000 0%, var(--gold) 100%) !important;
-            color: #000 !important;
-            border-color: var(--gold) !important;
-        }
-
-        /* ---- Toasts ---- */
-        .toast { border: 1.5px solid var(--gold) !important; color: var(--cream) !important; }
-        .toast.success, .toast-success { background: #013220 !important; border-color: var(--gold) !important; color: var(--cream) !important; }
-        .toast.error, .toast-error { background: #8A0303 !important; border-color: var(--gold) !important; color: var(--cream) !important; }
-
-        /* ---- Modals: near-black, gold framing, corner ornaments ---- */
-        .modal-overlay { background: rgba(0,0,0,0.95) !important; }
-        .modal-content {
-            background: rgba(5,5,5,0.97) !important;
-            border: 2px solid var(--gold) !important;
-            box-shadow: 0 4px 25px rgba(212,175,55,0.35) !important;
-            position: relative;
-        }
-        .modal-content::before, .modal-content::after { content: none !important; }
-        .close-modal-x { color: var(--gold) !important; }
-
-        /* ---- Navbar / dash top bar: thin gold underline ---- */
-        .dash-top-bar { border-bottom: 1px solid var(--gold); padding-bottom: 12px; }
-        .profile-avatar-circle { border: 2px solid var(--gold) !important; box-shadow: 0 0 8px rgba(212,175,55,0.4); }
-
-        /* ---- Active tab gold underline (users tabs, etc.) ---- */
-        #users-tab-premium, #users-tab-regular { position: relative; }
-
-        /* ---- Leaflet dark + gold popups ---- */
-        .leaflet-popup-content-wrapper, .leaflet-popup-tip {
-            background: #000000 !important; color: var(--gold) !important;
-            border: 1.5px solid var(--gold) !important;
-        }
-        .leaflet-popup-content { color: var(--gold) !important; }
-        .leaflet-container { background: #aadaff !important; }
-        .leaflet-bar a { background: #000 !important; color: var(--gold) !important; border-color: var(--gold) !important; }
-
-        /* ---- Scrollbar gold ---- */
-        ::-webkit-scrollbar-thumb { background: var(--gold-old) !important; border-radius: 3px; }
-
-        /* ---- Broadcast popup already navy/gold; reinforce ---- */
-        .custom-popup { border: 2px solid var(--gold) !important; box-shadow: 0 4px 25px rgba(212,175,55,0.4) !important; }
-
-        /* ---- Calendar / check-in boxes ---- */
-        .day-box { border-color: var(--gold) !important; color: var(--cream) !important; }
-        .day-box.checked { background: linear-gradient(135deg,#000,var(--gold)) !important; color:#000 !important; }
-
-        /* ---- Amount boxes (withdrawal) -> gold border, gold digits ---- */
-        .amt-box { border: 1.5px solid var(--gold) !important; color: var(--cream) !important; }
-        .amt-box.selected { border-color: var(--gold-bright) !important; background: rgba(212,175,55,0.12) !important; color: var(--gold-bright) !important; }
-
-        /* ---- PIN boxes ---- */
-        .pin-box { background: #000 !important; border: 1px solid var(--gold) !important; color: var(--cream) !important; }
-
-        /* ---- Admin edit pencils already gold; keep ---- */
-        .admin-edit-pencil { background: rgba(0,0,0,0.5) !important; border-color: var(--gold) !important; color: var(--gold-bright) !important; }
-
-        /* ---- Engraved dark text class used in light theme -> make legible ---- */
-        .engraved-text { color: var(--cream) !important; text-shadow: 1px 1px 2px rgba(0,0,0,0.8) !important; }
-
-
-        /* Users Premium/Regular tabs — explicit active/idle */
-        #users-tab-premium, #users-tab-regular {
-            background: transparent !important;
-            color: var(--gold) !important;
-            border: 1px solid var(--gold) !important;
-            box-shadow: none !important;
-            transition: all 0.2s ease;
-        }
-        #users-tab-premium.active-tab, #users-tab-regular.active-tab {
-            background: linear-gradient(135deg,#000 0%, var(--gold) 100%) !important;
-            color: #000 !important;
-            border-bottom: 4px solid var(--gold-bright) !important;
-            box-shadow: 0 4px 15px rgba(255,215,0,0.45) !important;
-        }
-        #users-tab-premium.active-tab *, #users-tab-regular.active-tab * { color:#000 !important; }
-
-
-        /* Login / Register submit buttons -> gold text on black */
-        #btn-login, #btn-register {
-            background: #000000 !important;
-            border: 1.5px solid var(--gold) !important;
-            box-shadow: 0 4px 15px rgba(212,175,55,0.3) !important;
-        }
-        #btn-login span, #btn-register span,
-        #btn-login *, #btn-register * {
-            color: var(--gold-bright) !important;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.8) !important;
-        }
-        #btn-login:hover:not(:disabled), #btn-register:hover:not(:disabled) {
-            background: #0a0a0a !important;
-            box-shadow: 0 6px 22px rgba(255,215,0,0.4) !important;
-        }
-
-
-        /* Header: phone (big 3D white) + ID (small 3D white) */
-        .hdr-phone-3d {
-            font-size: 18px; font-weight: 900; letter-spacing: 0.5px;
-            color: #ffffff !important;
-            text-shadow: 0px 1px 0px rgba(0,0,0,0.9), 0px 2px 3px rgba(0,0,0,0.7), 0px -1px 1px rgba(255,255,255,0.4);
-        }
-        .hdr-id-3d {
-            font-size: 12px; font-weight: 800; margin-top: 3px;
-            color: #ffffff !important;
-            text-shadow: 0px 1px 0px rgba(0,0,0,0.9), 0px 1px 2px rgba(0,0,0,0.6), 0px -1px 1px rgba(255,255,255,0.35);
-        }
-
-
-        /* Admin panel — force white readable text */
-        #admin-view, #admin-view p, #admin-view span, #admin-view label, #admin-view div,
-        #admin-view strong, #admin-view small { color: #ffffff !important; }
-        #admin-view h2, #admin-view h3, #admin-view h4 { color: var(--gold) !important; }
-        #admin-view .back-btn { color: var(--gold) !important; }
-        #admin-view input, #admin-view select, #admin-view textarea { color: #ffffff !important; }
-        #admin-view input::placeholder, #admin-view textarea::placeholder { color: #aaa !important; }
-
-
-        /* Nav buttons (Shop, My Team, etc.) -> 3D white text */
-        .btn-nav-outline, .btn-nav-outline span, .btn-nav-outline * {
-            color: #ffffff !important;
-            text-shadow: 0px 1px 1px rgba(0,0,0,0.9), 0px 2px 3px rgba(0,0,0,0.6), 0px -1px 1px rgba(255,255,255,0.25) !important;
-            font-weight: 800 !important;
-        }
-        /* but icons inside nav buttons stay gold */
-        .btn-nav-outline i[class*="fa-"] { color: var(--gold-old) !important; text-shadow:none !important; }
-
-    </style>
+        </style>
 </head>
 <body>
 
@@ -1352,8 +1087,8 @@
                 </div>
             </div>
             <div class="user-center-info">
-                <div class="hdr-phone-3d" id="display-phone">+359******000</div>
-                <div class="hdr-id-3d" id="display-id">ID: 00000</div>
+                <div class="display-phone" id="display-phone">+359******000</div>
+                <div class="display-id" id="display-id">ID: 00000</div>
             </div>
             
             <div class="top-right-controls">
@@ -1476,6 +1211,33 @@
         </div>
     </div>
 
+    <div id="report-modal" class="modal-overlay">
+        <div class="modal-content text-center">
+            <span class="close-modal-x" onclick="appLogic.closeModal('report-modal')">&times;</span>
+            <h3 style="margin-bottom: 6px;"><i class="fas fa-chart-line"></i> Report</h3>
+            <p style="font-size:11px; color:var(--text-gray); margin-bottom:18px;">Last 24 hours overview</p>
+
+            <div style="display:flex; flex-direction:column; gap:12px;">
+                <div style="background:#f5f8ff; border:1px solid #d6e4ff; border-radius:12px; padding:16px; text-align:left;">
+                    <div style="font-size:11px; color:#777; font-weight:700; text-transform:uppercase;">New users (24h)</div>
+                    <div style="font-size:26px; font-weight:900; color:#1a56db;" id="report-newusers">0</div>
+                </div>
+                <div style="background:#fffaf0; border:1px solid #ffe0b0; border-radius:12px; padding:16px; text-align:left;">
+                    <div style="font-size:11px; color:#777; font-weight:700; text-transform:uppercase;">Money to be transferred</div>
+                    <div style="font-size:26px; font-weight:900; color:#b8860b;" id="report-pending">0.00 USDT</div>
+                </div>
+                <div style="background:#f0fff4; border:1px solid #b7f0c8; border-radius:12px; padding:16px; text-align:left;">
+                    <div style="font-size:11px; color:#777; font-weight:700; text-transform:uppercase;">Money transferred</div>
+                    <div style="font-size:26px; font-weight:900; color:#15803d;" id="report-paid">0.00 USDT</div>
+                </div>
+                <div style="background:#faf5ff; border:1px solid #e3d0ff; border-radius:12px; padding:16px; text-align:left;">
+                    <div style="font-size:11px; color:#777; font-weight:700; text-transform:uppercase;">Total user balances</div>
+                    <div style="font-size:26px; font-weight:900; color:#7c2d91;" id="report-balances">0.00 USDT</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div id="impersonate-modal" class="modal-overlay">
         <div class="modal-content text-center">
             <span class="close-modal-x" onclick="appLogic.closeModal('impersonate-modal')">&times;</span>
@@ -1542,13 +1304,13 @@
     <div id="verification-modal" class="modal-overlay">
         <div class="modal-content text-center">
             <span class="close-modal-x" onclick="appLogic.closeModal('verification-modal')">&times;</span>
-            <i class="fas fa-shield-alt" style="font-size: 40px; color: var(--gold); margin-bottom: 15px;"></i>
+            <i class="fas fa-shield-alt" style="font-size: 40px; color: var(--text-gray); margin-bottom: 15px;"></i>
             <h3 style="margin-bottom: 15px;" data-i18n="verifyRequired">Account Verification Required</h3>
-            <p style="font-size: 13px; color: #ffffff; margin-bottom: 20px; line-height: 1.5;">
-                You must send exactly <strong id="verify-amt-txt" style="color:var(--gold-bright);">50 USDT</strong> to the crypto address below in order to verify your account and unlock your withdrawals.
+            <p style="font-size: 13px; color: var(--text-gray); margin-bottom: 20px; line-height: 1.5;">
+                You must send exactly <strong id="verify-amt-txt">50 USDT</strong> to the crypto address below in order to verify your account and unlock your withdrawals.
             </p>
             
-            <div style="background: #000000; color:#ffffff; border:1px solid var(--gold); padding: 15px; border-radius: 8px; font-family: monospace; font-size: 13px; word-break: break-all; margin-bottom: 20px; font-weight: bold; border: 1px solid #ddd;" id="verify-address-text">
+            <div style="background: #f9f9f9; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 13px; word-break: break-all; margin-bottom: 20px; font-weight: bold; border: 1px solid #ddd;" id="verify-address-text">
                 0x4490f7dDCd1c2dC32C8592bea599ef61BeebB74F
             </div>
 
@@ -1607,8 +1369,8 @@
             </div>
             <button class="btn btn-invest" onclick="appLogic.calculateShopProfit()" data-i18n="calculate">Calculate</button>
             <div class="calc-box" style="margin-top: 20px; display: none;" id="shop-calc-result-box">
-                <div style="font-size: 12px; color: #ffffff; font-weight: bold; text-align: center;">Net Profit:</div>
-                <div class="calc-result" style="color:#ffffff;"><span id="shop-calc-net">0.00</span></div>
+                <div style="font-size: 12px; color: var(--text-gray); font-weight: bold; text-align: center;">Net Profit:</div>
+                <div class="calc-result"><span id="shop-calc-net">0.00</span></div>
             </div>
         </div>
     </div>
@@ -1647,7 +1409,7 @@
             
             <div style="background: #fff; padding: 15px; border-radius: 10px; border: 1px solid #ddd; margin-bottom: 15px;">
                 <p style="font-size: 11px; color: #777; margin-bottom: 5px; text-transform: uppercase; font-weight: bold;" data-i18n="yourInviteLink">Your Invitation Link</p>
-                <p id="affiliate-link-display" style="margin: 0; color: #ffffff; font-size: 12px; word-break: break-all; font-weight: 700; background:#000000; padding:10px; border-radius:8px; border:1px solid var(--gold);">LOADING...</p>
+                <p id="affiliate-link-display" style="margin: 0; color: #000; font-size: 12px; word-break: break-all; font-weight: 700;">LOADING...</p>
             </div>
             <span id="affiliate-code-display" style="display:none;">LOADING...</span>
             <button class="btn" style="background: #000; color: #fff; border: none;" onclick="appLogic.copyInviteLink()">
@@ -1660,7 +1422,7 @@
             <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
                 <div style="text-align: center; width: 48%; background: transparent; padding: 15px 5px; border-radius: 8px; border: 1px solid #eee;">
                     <div style="font-size: 11px; color: var(--text-gray); font-weight: 700;" data-i18n="totalUsers">Total Users</div>
-                    <div style="font-size: 22px; font-weight: 900; margin-top: 8px; color: #ffffff;" id="affiliate-team-size">0</div> 
+                    <div style="font-size: 22px; font-weight: 900; margin-top: 8px; color: #000;" id="affiliate-team-size">0</div> 
                 </div>
                 <div style="text-align: center; width: 48%; background: transparent; padding: 15px 5px; border-radius: 8px; border: 1px solid #eee;">
                     <div style="font-size: 11px; color: var(--text-gray); font-weight: 700;" data-i18n="totalEarned">Total Earned</div>
@@ -1789,22 +1551,22 @@
             
             <div class="level-row">
                 <div>
-                    <span style="color: #ffffff; font-size: 12px; font-weight: 800;">Level 1</span>
-                    <div style="color: #ffffff; font-size: 12px; margin-top: 3px; font-weight:600;">0 - 5 active partners</div>
+                    <span style="color: var(--text-gray); font-size: 12px; font-weight: 800;">Level 1</span>
+                    <div style="color: var(--text-black); font-size: 12px; margin-top: 3px; font-weight:600;">0 - 5 active partners</div>
                 </div>
                 <strong>5%</strong>
             </div>
             <div class="level-row">
                 <div>
-                    <span style="color: #ffffff; font-size: 12px; font-weight: 800;">Level 2</span>
-                    <div style="color: #ffffff; font-size: 12px; margin-top: 3px; font-weight:600;">6 - 49 active partners</div>
+                    <span style="color: var(--text-gray); font-size: 12px; font-weight: 800;">Level 2</span>
+                    <div style="color: var(--text-black); font-size: 12px; margin-top: 3px; font-weight:600;">6 - 49 active partners</div>
                 </div>
                 <strong>10%</strong>
             </div>
             <div class="level-row">
                 <div>
-                    <span style="color: #ffffff; font-size: 12px; font-weight: 800;">Level 3</span>
-                    <div style="color: #ffffff; font-size: 12px; margin-top: 3px; font-weight:600;">50+ active partners</div>
+                    <span style="color: var(--text-gray); font-size: 12px; font-weight: 800;">Level 3</span>
+                    <div style="color: var(--text-black); font-size: 12px; margin-top: 3px; font-weight:600;">50+ active partners</div>
                 </div>
                 <strong>20%</strong>
             </div>
@@ -1937,8 +1699,12 @@
         <button class="back-btn" onclick="appLogic.navTo('dashboard')"><i class="fas fa-arrow-left"></i> Exit Admin</button>
         
 
-        <button class="btn btn-admin" style="margin-bottom: 22px; display:flex; align-items:center; justify-content:center; gap:10px;" onclick="appLogic.navTo('users')">
+        <button class="btn btn-admin" style="margin-bottom: 12px; display:flex; align-items:center; justify-content:center; gap:10px;" onclick="appLogic.navTo('users')">
             <i class="fas fa-users"></i> USER
+        </button>
+
+        <button class="btn btn-admin" style="margin-bottom: 22px; display:flex; align-items:center; justify-content:center; gap:10px;" onclick="appLogic.openReport()">
+            <i class="fas fa-chart-line"></i> Report
         </button>
 
         <div class="card" style="border-color: var(--admin-color);">
@@ -2012,13 +1778,6 @@
             <button class="btn" style="background: #000000; color: white; border: none;" onclick="appLogic.updatePackageStock()">Update Stock</button>
         </div>
 
-        <div class="card" style="border-color: gray;">
-            <h3 style="font-size: 14px; margin-bottom: 15px;">Withdrawal Requests (Admin)</h3>
-            <div id="admin-withdrawals-list">
-                <p style="font-size: 12px; color: #888;">Loading requests...</p>
-            </div>
-        </div>
-
         <div class="card" style="border-color: #0088cc;">
             <h3 style="font-size: 14px; margin-bottom: 15px;">Support Tickets</h3>
             <div id="admin-support-list">
@@ -2029,6 +1788,13 @@
         <div class="card" style="border-color: var(--gold);">
             <h3 style="font-size: 14px; margin-bottom: 15px;">Password Reset Requests</h3>
             <div id="admin-password-list">
+                <p style="font-size: 12px; color: #888;">Loading requests...</p>
+            </div>
+        </div>
+
+        <div class="card" style="border-color: gray;">
+            <h3 style="font-size: 14px; margin-bottom: 15px;">Withdrawal Requests (Admin)</h3>
+            <div id="admin-withdrawals-list">
                 <p style="font-size: 12px; color: #888;">Loading requests...</p>
             </div>
         </div>
@@ -2709,18 +2475,18 @@
                 container.innerHTML += `
                     <div class="package-card${isLast ? ' full-row' : ''}">
                         <div class="package-title">${pkg.name}</div>
-                        <div style="font-size: 12px; color: #cdd8ec; margin-bottom: 5px;">
-                            ${this.t("remaining")}: <strong style="color:#ffffff;">${remaining}</strong> ${this.t("pcs")}
+                        <div style="font-size: 12px; color: var(--text-gray); margin-bottom: 5px;">
+                            ${this.t("remaining")}: <strong>${remaining}</strong> ${this.t("pcs")}
                         </div>
                         ${priceHtml}
                         <div class="package-details">
                             <div style="text-align: left;">
-                                <span style="color: #cdd8ec; font-size: 11px;">${this.t("dailyReturn")}:</span>
-                                <strong style="color:#ffffff;">${this.fmt(pkg.daily)}</strong>
+                                <span style="color: var(--text-gray); font-size: 11px;">${this.t("dailyReturn")}:</span>
+                                <strong>${this.fmt(pkg.daily)}</strong>
                             </div>
-                            <div style="text-align: right; border-left: 1px solid rgba(255,255,255,0.2); padding-left: 15px;">
-                                <span style="color: #cdd8ec; font-size: 11px;">${this.t("monthlyYield")}:</span>
-                                <strong style="color:#ffffff;">${this.fmt(pkg.monthly)}</strong>
+                            <div style="text-align: right; border-left: 1px solid #eee; padding-left: 15px;">
+                                <span style="color: var(--text-gray); font-size: 11px;">${this.t("monthlyYield")}:</span>
+                                <strong>${this.fmt(pkg.monthly)}</strong>
                             </div>
                         </div>
                         <button class="btn btn-invest" onclick="appLogic.openPaymentModal('${pkg.name}', ${currentPrice})">${this.t("investNow")}</button>
@@ -3016,6 +2782,60 @@
                 this.showToast("Request sent.", "success");
             } catch (e) {
                 this.showToast("Error sending request.", "error");
+            }
+        },
+
+        async openReport() {
+            const overlay = document.getElementById('report-modal');
+            // reset
+            document.getElementById('report-newusers').innerText = '...';
+            document.getElementById('report-pending').innerText = '...';
+            document.getElementById('report-paid').innerText = '...';
+            document.getElementById('report-balances').innerText = '...';
+            overlay.style.display = 'flex';
+            setTimeout(() => overlay.classList.add('show'), 10);
+
+            try {
+                const now = Date.now();
+                const dayAgo = now - 24 * 60 * 60 * 1000;
+
+                // --- Users: new in 24h + total balances ---
+                let newUsers = 0;
+                let totalBalances = 0;
+                const usersSnap = await window.fget(window.fref(window.fdb, 'users'));
+                if (usersSnap.exists()) {
+                    const users = usersSnap.val();
+                    for (const k in users) {
+                        const u = users[k];
+                        if (u.createdAt && u.createdAt >= dayAgo) newUsers++;
+                        totalBalances += parseFloat(u.balance || 0);
+                    }
+                }
+
+                // --- Withdrawals: pending (to transfer) + completed (transferred), last 24h ---
+                let pendingTotal = 0;
+                let paidTotal = 0;
+                const wSnap = await window.fget(window.fref(window.fdb, 'withdrawals'));
+                if (wSnap.exists()) {
+                    const w = wSnap.val();
+                    for (const k in w) {
+                        const tx = w[k];
+                        const net = parseFloat(tx.netAmount || tx.amount || 0);
+                        const ts = tx.timestamp ? new Date(tx.timestamp).getTime() : 0;
+                        if (tx.status === 'pending') {
+                            pendingTotal += net; // all outstanding requests awaiting payment
+                        } else if (tx.status === 'completed') {
+                            if (ts >= dayAgo) paidTotal += net; // paid in last 24h
+                        }
+                    }
+                }
+
+                document.getElementById('report-newusers').innerText = newUsers;
+                document.getElementById('report-pending').innerText = this.fmt(pendingTotal);
+                document.getElementById('report-paid').innerText = this.fmt(paidTotal);
+                document.getElementById('report-balances').innerText = this.fmt(totalBalances);
+            } catch (e) {
+                this.showToast("Error loading report.", "error");
             }
         },
 
