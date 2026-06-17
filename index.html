@@ -45,7 +45,9 @@
 
         body {
             background-color: #FFFFFF;
-            background-image: none;
+            background-image: 
+                radial-gradient(circle at top left, rgba(150, 210, 255, 0.8) 0%, transparent 55%),
+                radial-gradient(circle at top right, rgba(255, 240, 150, 0.8) 0%, transparent 55%);
             background-attachment: fixed;
             background-size: cover;
             background-repeat: no-repeat;
@@ -149,7 +151,7 @@
             background: transparent;
             border-radius: var(--border-radius-sm); 
             padding: 8px 15px; 
-            border: 1px solid #000000;
+            border: 1px solid var(--border-gray);
             transition: var(--transition-speed);
             position: relative;
         }
@@ -191,16 +193,6 @@
         .phone-group { display: flex; gap: 12px; }
         .phone-code { width: 38%; }
         .phone-number { width: 62%; }
-        .input-wrapper.phone-code {
-            border: none;
-            padding-left: 0;
-            padding-right: 0;
-            background: transparent;
-        }
-        .input-wrapper.phone-code:focus-within {
-            border: none;
-            background: transparent;
-        }
 
         .btn {
             width: 100%;
@@ -318,18 +310,6 @@
             cursor: pointer;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
             font-size: 30px;
-            overflow: hidden;
-            padding: 0;
-            line-height: 1;
-            text-align: center;
-        }
-        .profile-avatar-circle img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center center;
-            border-radius: 50%;
-            display: block;
         }
         .emoji-dropdown {
             display: none;
@@ -495,6 +475,8 @@
 
         .package-card { 
             background: rgba(255, 255, 255, 0.55);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
             border-radius: var(--border-radius-md); padding: 25px; margin-bottom: 25px; 
             border: 1px solid rgba(255, 255, 255, 0.7); box-shadow: 0 8px 24px rgba(20,50,90,0.08);
             position: relative; overflow: hidden;
@@ -1037,7 +1019,9 @@
         
         #withdrawal-view {
             background-color: #ffffff;
-            background-image: none;
+            background-image: 
+                radial-gradient(circle at top left, rgba(150,210,255,0.8) 0%, transparent 55%),
+                radial-gradient(circle at top right, rgba(255,240,150,0.8) 0%, transparent 55%);
             background-attachment: fixed;
             background-size: cover;
         }
@@ -1088,7 +1072,10 @@
         
         #packages-view {
             background-color: #ffffff;
-            background-image: none;
+            background-image:
+                radial-gradient(circle at top left, rgba(150,210,255,0.8) 0%, transparent 55%),
+                radial-gradient(circle at top right, rgba(255,240,150,0.8) 0%, transparent 55%),
+                linear-gradient(180deg, rgba(255,255,255,0) 30%, #ffffff 60%);
             background-repeat: no-repeat;
             background-size: 100% 100%;
             background-attachment: fixed;
@@ -1336,7 +1323,7 @@
 
         #dashboard-view {
             background-color: #ffffff;
-            background-image: none;
+            background-image: radial-gradient(circle at top left, rgba(150,210,255,0.8) 0%, transparent 55%), radial-gradient(circle at top right, rgba(255,240,150,0.8) 0%, transparent 55%), linear-gradient(180deg, rgba(255,255,255,0) 30%, #ffffff 60%);
             background-repeat: no-repeat;
             background-size: 100% 100%;
             background-attachment: fixed;
@@ -1387,15 +1374,10 @@
         .profile-avatar-circle, .emoji-item {
             background-color: transparent !important;
             overflow: hidden !important;
-            display: flex !important;
-            justify-content: center !important;
-            align-items: center !important;
-            padding: 0 !important;
         }
         .profile-avatar-circle img, .emoji-item img {
             width: 100% !important; height: 100% !important;
-            object-fit: cover !important; object-position: center center !important;
-            border-radius: 50% !important;
+            object-fit: cover !important; border-radius: 50% !important;
             display: block !important;
         }
 
@@ -1921,7 +1903,7 @@
         </div>
     </div>
 
-    <div id="packages-view" class="view" style="background-image: none; background-color: #ffffff;">
+    <div id="packages-view" class="view" style="background-image: radial-gradient(circle at top left, rgba(150,210,255,0.85) 0%, transparent 55%), radial-gradient(circle at top right, rgba(255,240,150,0.85) 0%, transparent 55%), linear-gradient(180deg, rgba(255,255,255,0) 30%, #ffffff 60%); background-repeat: no-repeat; background-size: 100% 100%; background-color: #ffffff;">
         <button class="back-btn close-btn" onclick="appLogic.navTo('dashboard')"><i class="fas fa-times"></i></button>
         <div style="position: relative; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
             <h2 style="text-transform: capitalize;" data-i18n="shop">Shop</h2>
@@ -2116,7 +2098,7 @@
     <div id="energy-plans-view" class="view">
         <button class="back-btn close-btn" onclick="appLogic.navTo('dashboard')"><i class="fas fa-times"></i></button>
         <h2 style="text-transform: capitalize; text-align: center; margin-bottom: 20px;" data-i18n="information">Information</h2>
-        <button onclick="window.open('https://docs.google.com/document/d/1ybBIPgAr_T0BC_EPkL774pThAGT7uVISC2mLL3Gwiqk/edit?usp=drivesdk', '_blank')" style="display:block; width:100%; margin:8px 0 18px; padding:14px; background-color:#0a1d3a; background-image: radial-gradient(circle at top left, rgba(80,140,255,0.35) 0%, transparent 60%), radial-gradient(circle at bottom right, rgba(30,60,120,0.5) 0%, transparent 65%); color:#ffffff; border:1.5px solid #d4af37; border-radius:12px; font-weight:800; font-size:15px; cursor:pointer;" data-i18n="seeMore">See more</button>
+        <button onclick="window.open('https://docs.google.com/document/d/11wC7zscPA87C5LLF2ow01mrI9novMzq7JrUuKt0b-AY/edit?usp=drivesdk', '_blank')" style="display:block; width:100%; margin:8px 0 18px; padding:14px; background-color:#0a1d3a; background-image: radial-gradient(circle at top left, rgba(80,140,255,0.35) 0%, transparent 60%), radial-gradient(circle at bottom right, rgba(30,60,120,0.5) 0%, transparent 65%); color:#ffffff; border:1.5px solid #d4af37; border-radius:12px; font-weight:800; font-size:15px; cursor:pointer;" data-i18n="seeMore">See more</button>
         
             <style>
         .info-how-works-block {
@@ -2393,23 +2375,9 @@
         </div>
         </div>
 
-        <button class="btn btn-admin" style="margin-top: 22px; display:flex; align-items:center; justify-content:center; gap:10px;" onclick="appLogic.navTo('base')">
-            <i class="fas fa-database"></i> <span>Base</span>
-        </button>
+        
 
         
-    </div>
-
-    <div id="base-view" class="view">
-        <button class="back-btn" onclick="appLogic.navTo('admin')"><i class="fas fa-arrow-left"></i> Back</button>
-        <h2 class="text-center" style="margin-bottom: 8px;">Database</h2>
-        <p style="text-align:center; font-size:11px; color:var(--text-gray); margin-bottom:16px;">Live view of all records. You can edit balance / package and delete records.</p>
-        <div class="input-wrapper" style="margin-bottom:14px;">
-            <i class="fas fa-search" style="color:var(--gold); margin-right:8px;"></i>
-            <input type="text" id="base-search" placeholder="Search by ID, name or phone..." oninput="appLogic.filterBaseList()" style="border:none; background:transparent; flex:1;">
-        </div>
-        <div id="base-count" style="font-size:12px; color:var(--text-gray); text-align:center; margin-bottom:12px;">Loading...</div>
-        <div id="base-list"></div>
     </div>
 
 </div>
@@ -3772,7 +3740,6 @@
         },
 
         navTo(tabName) {
-            if (tabName !== 'base' && this._baseUnsub) { try { this._baseUnsub(); } catch(e){} this._baseUnsub = null; }
             document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
             document.getElementById(`${tabName}-view`).classList.add('active');
             if(tabName === 'wallet') this.generateWithdrawGrid();
@@ -3780,7 +3747,6 @@
             if(tabName === 'checkin') this.renderCheckinView();
             if(tabName === 'support') this.listenToMyChat();
             if(tabName === 'users') this.loadUsersList();
-            if(tabName === 'base') this.loadBaseList();
         },
 
         showMainApp() {
@@ -4121,162 +4087,6 @@
             } catch (e) {
                 list.innerHTML = '<p style="font-size:12px; color:#c00; text-align:center;">Error loading users.</p>';
             }
-        },
-
-        loadBaseList() {
-            const list = document.getElementById('base-list');
-            const countEl = document.getElementById('base-count');
-            if (list) list.innerHTML = '<p style="font-size:12px; color:var(--text-gray); text-align:center;">Loading database...</p>';
-            const usersRef = window.fref(window.fdb, 'users');
-            if (this._baseUnsub) { try { this._baseUnsub(); } catch(e){} }
-            this._baseUnsub = window.fonValue(usersRef, (snap) => {
-                if (!document.getElementById('base-view').classList.contains('active')) return;
-                if (!snap.exists()) {
-                    this._baseCache = {};
-                    if (countEl) countEl.innerText = 'No records found.';
-                    list.innerHTML = '<p style="font-size:12px; color:#888; text-align:center;">Database is empty.</p>';
-                    return;
-                }
-                const all = snap.val();
-                this._baseCache = all;
-                this.renderBaseList(all);
-            });
-        },
-
-        renderBaseList(all) {
-            const list = document.getElementById('base-list');
-            const countEl = document.getElementById('base-count');
-            if (!list) return;
-            const entries = Object.entries(all).map(([key, u]) => ({ key, ...(u || {}) }));
-            entries.sort((a,b) => String(a.myCode||a.key).localeCompare(String(b.myCode||b.key), undefined, {numeric:true}));
-            if (countEl) countEl.innerText = entries.length + ' record' + (entries.length === 1 ? '' : 's');
-            let html = '';
-            entries.forEach(u => {
-                const id = u.myCode || u.key;
-                const name = u.fullName || 'User';
-                const phone = u.phone || '—';
-                const balance = (u.balance !== undefined && u.balance !== null) ? u.balance : 0;
-                const pkg = (u.activePackage && u.activePackage !== 'none') ? u.activePackage : 'No package';
-                const searchStr = (String(id) + ' ' + name + ' ' + phone).toLowerCase();
-
-                const hiddenKeys = ['myCode'];
-                const fieldKeys = Object.keys(u).filter(k => k !== 'key' && !hiddenKeys.includes(k)).sort();
-                let rawRows = '';
-                fieldKeys.forEach(k => {
-                    let val = u[k];
-                    const isObj = (typeof val === 'object' && val !== null);
-                    let display = (val === null || val === undefined) ? '—' : (isObj ? JSON.stringify(val) : String(val));
-                    if (display.length > 140) display = display.slice(0,140) + '…';
-                    rawRows += `
-                        <div style="display:flex; justify-content:space-between; gap:10px; padding:6px 0; border-bottom:1px solid rgba(0,0,0,0.05);">
-                            <span style="font-size:10px; color:#888; text-transform:uppercase; font-weight:700; flex:0 0 40%; word-break:break-word;">${this.escapeHtml(k)}</span>
-                            <span style="font-size:12px; color:#000; font-weight:600; flex:1; text-align:right; word-break:break-all;">${this.escapeHtml(display)}</span>
-                        </div>`;
-                });
-
-                html += `
-                    <div data-baseid="${this.escapeHtml(String(id))}" data-search="${this.escapeHtml(searchStr)}" style="background:#ffffff; border:1px solid #000000; border-radius:12px; padding:14px; margin-bottom:12px;">
-                        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px; cursor:pointer;" onclick="appLogic.toggleBaseRecord(this)">
-                            <div style="min-width:0;">
-                                <div style="font-weight:900; font-size:15px; color:#000;">ID: ${this.escapeHtml(String(id))}</div>
-                                <div style="font-size:11px; color:#666; margin-top:2px; word-break:break-all;">${this.escapeHtml(name)} · ${this.escapeHtml(phone)}</div>
-                                <div style="font-size:12px; color:#000; margin-top:4px;"><strong>Balance:</strong> ${this.escapeHtml(String(balance))} &nbsp;·&nbsp; <strong>Package:</strong> ${this.escapeHtml(pkg)}</div>
-                            </div>
-                            <i class="fas fa-chevron-down" style="color:#888; margin-top:4px;"></i>
-                        </div>
-                        <div style="display:flex; gap:8px; margin-top:12px; flex-wrap:wrap;">
-                            <button onclick="appLogic.baseEditBalance('${this.escapeJs(u.key)}')" style="flex:1; min-width:120px; background:#1a56db; color:#fff; border:none; border-radius:8px; padding:10px; font-weight:800; font-size:12px; cursor:pointer;"><i class="fas fa-coins"></i> Edit Balance</button>
-                            <button onclick="appLogic.baseEditPackage('${this.escapeJs(u.key)}')" style="flex:1; min-width:120px; background:#0a1d3a; color:#fff; border:none; border-radius:8px; padding:10px; font-weight:800; font-size:12px; cursor:pointer;"><i class="fas fa-box"></i> Edit Package</button>
-                            <button onclick="appLogic.baseDeleteRecord('${this.escapeJs(u.key)}','${this.escapeJs(String(id))}')" style="flex:1; min-width:120px; background:#8B001A; color:#fff; border:none; border-radius:8px; padding:10px; font-weight:800; font-size:12px; cursor:pointer;"><i class="fas fa-trash"></i> Delete</button>
-                        </div>
-                        <div class="base-raw" style="display:none; margin-top:12px; padding:10px; background:rgba(0,0,0,0.03); border-radius:8px;">
-                            ${rawRows}
-                        </div>
-                    </div>`;
-            });
-            list.innerHTML = html;
-            this.filterBaseList();
-        },
-
-        toggleBaseRecord(headerEl) {
-            const card = headerEl.closest('[data-baseid]');
-            if (!card) return;
-            const raw = card.querySelector('.base-raw');
-            const chevron = headerEl.querySelector('i.fa-chevron-down, i.fa-chevron-up');
-            if (!raw) return;
-            const open = raw.style.display !== 'none';
-            raw.style.display = open ? 'none' : 'block';
-            if (chevron) chevron.className = open ? 'fas fa-chevron-down' : 'fas fa-chevron-up';
-        },
-
-        filterBaseList() {
-            const q = (document.getElementById('base-search')?.value || '').trim().toLowerCase();
-            const items = document.querySelectorAll('#base-list [data-baseid]');
-            items.forEach(el => {
-                const s = el.getAttribute('data-search') || '';
-                el.style.display = (!q || s.includes(q)) ? 'block' : 'none';
-            });
-        },
-
-        async baseEditBalance(userKey) {
-            const snap = await window.fget(window.fref(window.fdb, 'users/' + userKey));
-            if (!snap.exists()) return this.showToast("Record not found.", "error");
-            const data = snap.val();
-            const current = (data.balance !== undefined && data.balance !== null) ? data.balance : 0;
-            const input = window.prompt('Edit balance:', current);
-            if (input === null) return;
-            const value = parseFloat(input);
-            if (isNaN(value)) return this.showToast("Enter a valid number.", "error");
-            try {
-                await window.fupdate(window.fref(window.fdb, 'users/' + userKey), { balance: value });
-                this.showToast("Balance updated.", "success");
-            } catch (e) { this.showToast("Error saving balance.", "error"); }
-        },
-
-        async baseEditPackage(userKey) {
-            const snap = await window.fget(window.fref(window.fdb, 'users/' + userKey));
-            if (!snap.exists()) return this.showToast("Record not found.", "error");
-            const data = snap.val();
-            const current = data.activePackage || 'none';
-            const input = window.prompt('Edit package (enter package name, or "none" to reset):', current);
-            if (input === null) return;
-            const value = input.trim();
-            try {
-                const upd = { activePackage: value };
-                const pkgInfo = this.findPackage(value);
-                if (pkgInfo) {
-                    upd.dailyProfit = pkgInfo.daily;
-                    upd.investedAmount = pkgInfo.price;
-                    upd.packageActivatedAt = Date.now();
-                    upd.syncedPackageProfit = 0;
-                } else if (value === 'none' || value === '') {
-                    upd.activePackage = 'none';
-                    upd.dailyProfit = 0;
-                } else {
-                    return this.showToast('Unknown package. Use an exact package name or "none".', "error");
-                }
-                await window.fupdate(window.fref(window.fdb, 'users/' + userKey), upd);
-                this.showToast("Package updated.", "success");
-            } catch (e) { this.showToast("Error saving package.", "error"); }
-        },
-
-        async baseDeleteRecord(userKey, displayId) {
-            const ok = window.confirm('Delete record ID ' + displayId + '? This permanently removes it from the database and cannot be undone.');
-            if (!ok) return;
-            try {
-                await window.fremove(window.fref(window.fdb, 'users/' + userKey));
-                this.showToast("Record deleted.", "success");
-            } catch (e) { this.showToast("Error deleting record.", "error"); }
-        },
-
-        escapeHtml(str) {
-            return String(str)
-                .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-                .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
-        },
-
-        escapeJs(str) {
-            return String(str).replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/"/g, '\\"');
         },
 
         async openUserEditor(userKey) {
